@@ -1,6 +1,13 @@
 package pro.ups.Citas_Medicas.modelo;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TBL_Paciente")
 public class Paciente {
+	@Id
 	private int id;
 	private String cedula;
 	private String nombres;

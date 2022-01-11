@@ -1,29 +1,36 @@
 package pro.ups.Citas_Medicas.modelo;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+@Entity
+@Table(name = "TBL_Receta")
 public class Receta {
-
-	private int numeroReceta;
-	private Double dosis;
-	private int frecuencias;
-	
-	
-	public int getNumeroReceta() {
-		return numeroReceta;
+	@Id
+	private int id;
+	private String diagnostico;
+	@OneToOne
+	@JoinColumn(name = "id")
+	private ConsultaMedica consulta;
+	public int getId() {
+		return id;
 	}
-	public void setNumeroReceta(int numeroReceta) {
-		this.numeroReceta = numeroReceta;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public Double getDosis() {
-		return dosis;
+	public String getDiagnostico() {
+		return diagnostico;
 	}
-	public void setDosis(Double dosis) {
-		this.dosis = dosis;
+	public void setDiagnostico(String diagnostico) {
+		this.diagnostico = diagnostico;
 	}
-	public int getFrecuencias() {
-		return frecuencias;
+	public ConsultaMedica getConsulta() {
+		return consulta;
 	}
-	public void setFrecuencias(int frecuencias) {
-		this.frecuencias = frecuencias;
+	public void setConsulta(ConsultaMedica consulta) {
+		this.consulta = consulta;
 	}
 	
 	

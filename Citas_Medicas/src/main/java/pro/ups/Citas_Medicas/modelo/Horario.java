@@ -1,24 +1,41 @@
 package pro.ups.Citas_Medicas.modelo;
 
-import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+@Entity
+@Table(name = "TBL_Horario")
 public class Horario {
-	private int id ;
-	private ArrayList<Cita> citas;
+	@Id
+	private int id;
+	@OneToMany(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "id")
+	private List<Cita> citas;
+	private String fecha;
 	private String dia;
 	private int hora;
-	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public ArrayList<Cita> getCitas() {
+	public List<Cita> getCitas() {
 		return citas;
 	}
-	public void setCitas(ArrayList<Cita> citas) {
+	public void setCitas(List<Cita> citas) {
 		this.citas = citas;
+	}
+	public String getFecha() {
+		return fecha;
+	}
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
 	}
 	public String getDia() {
 		return dia;

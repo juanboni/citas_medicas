@@ -1,36 +1,46 @@
 package pro.ups.Citas_Medicas.modelo;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "TBL_Factura")
 public class Factura {
+	@Id
 	private int id;
-	private String FEcha;
-	private Paciente paciente;
-	private ArrayList<FacturaDetalle> detalles;
+	private String Fecha;
+	@OneToOne
+	@JoinColumn(name = "id")
+	private Cita cita;
+	private double total;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getFEcha() {
-		return FEcha;
+	public String getFecha() {
+		return Fecha;
 	}
-	public void setFEcha(String fEcha) {
-		FEcha = fEcha;
+	public void setFecha(String fecha) {
+		Fecha = fecha;
 	}
-	public Paciente getPaciente() {
-		return paciente;
+	public Cita getCita() {
+		return cita;
 	}
-	public void setPaciente(Paciente paciente) {
-		this.paciente = paciente;
+	public void setCita(Cita cita) {
+		this.cita = cita;
 	}
-	public ArrayList<FacturaDetalle> getDetalles() {
-		return detalles;
+	public double getTotal() {
+		return total;
 	}
-	public void setDetalles(ArrayList<FacturaDetalle> detalles) {
-		this.detalles = detalles;
+	public void setTotal(double total) {
+		this.total = total;
 	}
+	
+
 	
 }

@@ -16,29 +16,6 @@ public class MedicoON {
 	private MedicoDAO daoMedico;
 	
 	public void insertMedico(Medico medico) throws Exception {
-		
-		
 		daoMedico.insert(medico);	
-	}
-
-	public void updateMedico(Medico medico) throws Exception {
-		
-		daoMedico.update(medico);
-	}
-	
-	public void deleteMedico(Medico medico) throws Exception {
-		
-		String cedula= medico.getCedula();
-		 
-		daoMedico.delete(cedula);
-	}
-	
-	public List<Medico> getMedicos() {
-		
-		//if(!this.validaCedula(persona.getCedula()))
-			//throw new Exception("Cedula incorrecta");
-		//Persona per= daoPersona.read("0102930888");
-		
-		return daoMedico.getMedicos("%");
 	}
 }

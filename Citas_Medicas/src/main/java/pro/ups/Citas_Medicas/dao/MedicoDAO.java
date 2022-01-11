@@ -1,5 +1,6 @@
 package pro.ups.Citas_Medicas.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -11,39 +12,35 @@ import pro.ups.Citas_Medicas.modelo.Medico;
 
 @Stateless
 public class MedicoDAO {
-	
-	@PersistenceContext
+
+	@PersistenceContext // coge el datasourses que tenemos en el proyecto(persistence.xml)
 	private EntityManager em;
 	
-	public void insert(Medico medico) {
-		em.persist(medico);
+	public void insert(Medico p) {
+		em.persist(p);
 	}
 	
-	public void update(Medico medico) {
-		em.merge(medico);
+	public void update(Medico p) {
+		em.merge(p);
 	}
 	
-	public Medico read(String cedula) {
-		Medico m = em.find(Medico.class, cedula);
-		return m;
+	public Medico read(String id) {
+		Medico p= em.find(Medico.class, id);
+		return p;
 	}
 	
-	public void delete(String cedula) {
-		Medico m = em.find(Medico.class, cedula);
-		em.remove(m);
+	
+	public void delete(int id) {
+		Medico p= em.find(Medico.class, id);
+		em.remove(p);
+	}
+	public List<Medico> getList(){
+		List<Medico> listado=new ArrayList<Medico>();
+		String jpql="SELECT p FROM Persona p";
+		Query query= em.createQuery(jpql,Medico.class);
+		listado = query.getResultList();
+		return listado;
 	}
 	
-	public List<Medico> getMedicos(String nombre){
-		
-		String jpql2="SELECT p FROM Medico p WHERE nombre LIKE ?1";
-		
-		nombre= nombre+"%";
-		Query query= em.createQuery(jpql2, Medico.class);
-		query.setParameter(1, nombre);
-		
-		List<Medico> medicos=query.getResultList();
-		return medicos;
-		
-	}
 
 }

@@ -1,18 +1,20 @@
 package pro.ups.Citas_Medicas.modelo;
 
-import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class Persona {
-
+@Entity
+@Table(name = "TBL_Colaborador")
+public class Colaborador {
+	@Id
 	private int id;
 	private String cedula;
-	private String nombre;
-	private String apellido;
+	private String nombres;
 	private String direccion;
 	private String telefono;
-	private Date fechaNacimiento;
+	private String fechaNacimiento;
 	private String email;
-	
 	public int getId() {
 		return id;
 	}
@@ -25,17 +27,11 @@ public class Persona {
 	public void setCedula(String cedula) {
 		this.cedula = cedula;
 	}
-	public String getNombre() {
-		return nombre;
+	public String getNombres() {
+		return nombres;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	public String getApellido() {
-		return apellido;
-	}
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public void setNombres(String nombres) {
+		this.nombres = nombres;
 	}
 	public String getDireccion() {
 		return direccion;
@@ -49,10 +45,10 @@ public class Persona {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	public Date getFechaNacimiento() {
+	public String getFechaNacimiento() {
 		return fechaNacimiento;
 	}
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(String fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 	public String getEmail() {

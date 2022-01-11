@@ -37,12 +37,17 @@ public class ventanaprincipal extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		
+		//---Medico
 		System.out.println("insertAR MEDICO");
 		Medico m=new Medico();
 		m.setId(1);
+		m.setCedula("0302882725");
+		m.setNombres("Juan Boni");
+		m.setDireccion("azogues 16 de abril");
+		m.setTelefono("030288272");
+		m.setFechaNacimiento("14/11/1998");
+		m.setEmail("juanbny85@gmail.com");
 		m.setEspecialidad("general");
-		//m.setCedula("0302882725");
 		
 		try {
 			medicoon.insertMedico(m);

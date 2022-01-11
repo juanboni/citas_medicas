@@ -5,12 +5,11 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import pro.ups.Citas_Medicas.dao.TurnoDAO;
-import pro.ups.Citas_Medicas.modelo.Turno;
+
 
 @Stateless
 public class TurnoON {
-	
+	/*
 	
 	@Inject
 	private TurnoDAO daoTurno;
@@ -40,5 +39,5 @@ public class TurnoON {
 		
 		return daoTurno.getTurnos("%");
 	}
-	
+	*/
 }

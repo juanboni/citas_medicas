@@ -1,22 +1,27 @@
 package pro.ups.Citas_Medicas.modelo;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TBL_Cita")
 public class Cita {
+	@Id
 	private int id;
-	private String fecha;
+	@OneToOne
+	@JoinColumn(name = "id")
 	private Paciente paciente;
-	private Medico medcio;
-	private ConsultaMedica consulta;
+	@OneToOne
+	@JoinColumn(name = "id")
+	private Medico medico;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public String getFecha() {
-		return fecha;
-	}
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
 	}
 	public Paciente getPaciente() {
 		return paciente;
@@ -24,17 +29,13 @@ public class Cita {
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
-	public Medico getMedcio() {
-		return medcio;
+	public Medico getMedico() {
+		return medico;
 	}
-	public void setMedcio(Medico medcio) {
-		this.medcio = medcio;
+	public void setMedico(Medico medico) {
+		this.medico = medico;
 	}
-	public ConsultaMedica getConsulta() {
-		return consulta;
-	}
-	public void setConsulta(ConsultaMedica consulta) {
-		this.consulta = consulta;
-	}
+	
+	
 	
 }

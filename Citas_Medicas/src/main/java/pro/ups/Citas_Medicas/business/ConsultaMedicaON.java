@@ -24,12 +24,12 @@ public class ConsultaMedicaON {
 		daoConsulta.update(consulta);
 	}
 	
-	public void deleteConsulta(ConsultaMedica consulta) throws Exception {
+	/*public void deleteConsulta(ConsultaMedica consulta) throws Exception {
 		
 		String cedula= consulta.getEstado();
 		 
 		daoConsulta.delete(cedula);
-	}
+	}*/
 	
 	public List<ConsultaMedica> getConsultas() {
 		
